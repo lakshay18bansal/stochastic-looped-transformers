@@ -1,0 +1,147 @@
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 1 --t_max 12 --run_seed 0 --out results/color/ids/det_fixed_B1/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 1 --t_max 12 --run_seed 1 --out results/color/ids/det_fixed_B1/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 1 --t_max 12 --run_seed 2 --out results/color/ids/det_fixed_B1/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 1 --t_max 12 --run_seed 0 --out results/color/ids/seed_q1_fixed_B1/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 1 --t_max 12 --run_seed 1 --out results/color/ids/seed_q1_fixed_B1/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 1 --t_max 12 --run_seed 2 --out results/color/ids/seed_q1_fixed_B1/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 1 --t_max 12 --run_seed 0 --out results/color/ids/seed_q8_fixed_B1/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 1 --t_max 12 --run_seed 1 --out results/color/ids/seed_q8_fixed_B1/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 1 --t_max 12 --run_seed 2 --out results/color/ids/seed_q8_fixed_B1/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 2 --t_max 12 --run_seed 0 --out results/color/ids/det_fixed_B2/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 2 --t_max 12 --run_seed 1 --out results/color/ids/det_fixed_B2/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 2 --t_max 12 --run_seed 2 --out results/color/ids/det_fixed_B2/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 2 --t_max 12 --run_seed 0 --out results/color/ids/seed_q1_fixed_B2/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 2 --t_max 12 --run_seed 1 --out results/color/ids/seed_q1_fixed_B2/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 2 --t_max 12 --run_seed 2 --out results/color/ids/seed_q1_fixed_B2/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 2 --t_max 12 --run_seed 0 --out results/color/ids/seed_q8_fixed_B2/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 2 --t_max 12 --run_seed 1 --out results/color/ids/seed_q8_fixed_B2/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 2 --t_max 12 --run_seed 2 --out results/color/ids/seed_q8_fixed_B2/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 3 --t_max 12 --run_seed 0 --out results/color/ids/det_fixed_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 3 --t_max 12 --run_seed 1 --out results/color/ids/det_fixed_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 3 --t_max 12 --run_seed 2 --out results/color/ids/det_fixed_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 3 --t_max 12 --run_seed 0 --out results/color/ids/seed_q1_fixed_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 3 --t_max 12 --run_seed 1 --out results/color/ids/seed_q1_fixed_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 3 --t_max 12 --run_seed 2 --out results/color/ids/seed_q1_fixed_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 3 --t_max 12 --run_seed 0 --out results/color/ids/seed_q8_fixed_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 3 --t_max 12 --run_seed 1 --out results/color/ids/seed_q8_fixed_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 3 --t_max 12 --run_seed 2 --out results/color/ids/seed_q8_fixed_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 4 --t_max 12 --run_seed 0 --out results/color/ids/det_fixed_B4/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 4 --t_max 12 --run_seed 1 --out results/color/ids/det_fixed_B4/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 4 --t_max 12 --run_seed 2 --out results/color/ids/det_fixed_B4/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 4 --t_max 12 --run_seed 0 --out results/color/ids/seed_q1_fixed_B4/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 4 --t_max 12 --run_seed 1 --out results/color/ids/seed_q1_fixed_B4/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 4 --t_max 12 --run_seed 2 --out results/color/ids/seed_q1_fixed_B4/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 4 --t_max 12 --run_seed 0 --out results/color/ids/seed_q8_fixed_B4/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 4 --t_max 12 --run_seed 1 --out results/color/ids/seed_q8_fixed_B4/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 4 --t_max 12 --run_seed 2 --out results/color/ids/seed_q8_fixed_B4/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 6 --t_max 16 --run_seed 0 --out results/color/ids/det_fixed_B6/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 6 --t_max 16 --run_seed 1 --out results/color/ids/det_fixed_B6/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 6 --t_max 16 --run_seed 2 --out results/color/ids/det_fixed_B6/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 6 --t_max 16 --run_seed 0 --out results/color/ids/seed_q1_fixed_B6/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 6 --t_max 16 --run_seed 1 --out results/color/ids/seed_q1_fixed_B6/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 6 --t_max 16 --run_seed 2 --out results/color/ids/seed_q1_fixed_B6/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 6 --t_max 16 --run_seed 0 --out results/color/ids/seed_q8_fixed_B6/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 6 --t_max 16 --run_seed 1 --out results/color/ids/seed_q8_fixed_B6/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 6 --t_max 16 --run_seed 2 --out results/color/ids/seed_q8_fixed_B6/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 2 --t_max 12 --run_seed 0 --out results/color/ids/seed_q8_rlhalt_B2/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 2 --t_max 12 --run_seed 1 --out results/color/ids/seed_q8_rlhalt_B2/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 2 --t_max 12 --run_seed 2 --out results/color/ids/seed_q8_rlhalt_B2/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 2 --t_max 12 --run_seed 0 --out results/color/ids/det_rlhalt_B2/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 2 --t_max 12 --run_seed 1 --out results/color/ids/det_rlhalt_B2/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 2 --t_max 12 --run_seed 2 --out results/color/ids/det_rlhalt_B2/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 3 --t_max 12 --run_seed 0 --out results/color/ids/seed_q8_rlhalt_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 3 --t_max 12 --run_seed 1 --out results/color/ids/seed_q8_rlhalt_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 3 --t_max 12 --run_seed 2 --out results/color/ids/seed_q8_rlhalt_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 3 --t_max 12 --run_seed 0 --out results/color/ids/det_rlhalt_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 3 --t_max 12 --run_seed 1 --out results/color/ids/det_rlhalt_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 3 --t_max 12 --run_seed 2 --out results/color/ids/det_rlhalt_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 4 --t_max 12 --run_seed 0 --out results/color/ids/seed_q8_rlhalt_B4/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 4 --t_max 12 --run_seed 1 --out results/color/ids/seed_q8_rlhalt_B4/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 4 --t_max 12 --run_seed 2 --out results/color/ids/seed_q8_rlhalt_B4/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 4 --t_max 12 --run_seed 0 --out results/color/ids/det_rlhalt_B4/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 4 --t_max 12 --run_seed 1 --out results/color/ids/det_rlhalt_B4/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 4 --t_max 12 --run_seed 2 --out results/color/ids/det_rlhalt_B4/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 6 --t_max 12 --run_seed 0 --out results/color/ids/seed_q8_rlhalt_B6/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 6 --t_max 12 --run_seed 1 --out results/color/ids/seed_q8_rlhalt_B6/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 6 --t_max 12 --run_seed 2 --out results/color/ids/seed_q8_rlhalt_B6/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 6 --t_max 12 --run_seed 0 --out results/color/ids/det_rlhalt_B6/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 6 --t_max 12 --run_seed 1 --out results/color/ids/det_rlhalt_B6/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method rlhalt --budget 6 --t_max 12 --run_seed 2 --out results/color/ids/det_rlhalt_B6/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode none --method fixed --budget 2 --run_seed 0 --out results/color/anon/det_fixed_B2/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode none --method fixed --budget 2 --run_seed 1 --out results/color/anon/det_fixed_B2/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode none --method fixed --budget 2 --run_seed 2 --out results/color/anon/det_fixed_B2/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 2 --run_seed 0 --out results/color/anon/seed_q1_fixed_B2/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 2 --run_seed 1 --out results/color/anon/seed_q1_fixed_B2/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 2 --run_seed 2 --out results/color/anon/seed_q1_fixed_B2/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 2 --run_seed 0 --out results/color/anon/seed_q8_fixed_B2/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 2 --run_seed 1 --out results/color/anon/seed_q8_fixed_B2/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 2 --run_seed 2 --out results/color/anon/seed_q8_fixed_B2/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 2 --run_seed 0 --out results/color/anon/seed_q8_rlhalt_B2/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 2 --run_seed 1 --out results/color/anon/seed_q8_rlhalt_B2/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 2 --run_seed 2 --out results/color/anon/seed_q8_rlhalt_B2/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode none --method fixed --budget 4 --run_seed 0 --out results/color/anon/det_fixed_B4/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode none --method fixed --budget 4 --run_seed 1 --out results/color/anon/det_fixed_B4/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode none --method fixed --budget 4 --run_seed 2 --out results/color/anon/det_fixed_B4/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 4 --run_seed 0 --out results/color/anon/seed_q1_fixed_B4/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 4 --run_seed 1 --out results/color/anon/seed_q1_fixed_B4/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 4 --run_seed 2 --out results/color/anon/seed_q1_fixed_B4/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 4 --run_seed 0 --out results/color/anon/seed_q8_fixed_B4/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 4 --run_seed 1 --out results/color/anon/seed_q8_fixed_B4/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 4 --run_seed 2 --out results/color/anon/seed_q8_fixed_B4/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 4 --run_seed 0 --out results/color/anon/seed_q8_rlhalt_B4/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 4 --run_seed 1 --out results/color/anon/seed_q8_rlhalt_B4/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 4 --run_seed 2 --out results/color/anon/seed_q8_rlhalt_B4/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode none --method fixed --budget 6 --run_seed 0 --out results/color/anon/det_fixed_B6/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode none --method fixed --budget 6 --run_seed 1 --out results/color/anon/det_fixed_B6/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode none --method fixed --budget 6 --run_seed 2 --out results/color/anon/det_fixed_B6/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 6 --run_seed 0 --out results/color/anon/seed_q1_fixed_B6/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 6 --run_seed 1 --out results/color/anon/seed_q1_fixed_B6/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 1 --method fixed --budget 6 --run_seed 2 --out results/color/anon/seed_q1_fixed_B6/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 6 --run_seed 0 --out results/color/anon/seed_q8_fixed_B6/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 6 --run_seed 1 --out results/color/anon/seed_q8_fixed_B6/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 6 --run_seed 2 --out results/color/anon/seed_q8_fixed_B6/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 6 --run_seed 0 --out results/color/anon/seed_q8_rlhalt_B6/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 6 --run_seed 1 --out results/color/anon/seed_q8_rlhalt_B6/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --anonymous --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 6 --run_seed 2 --out results/color/anon/seed_q8_rlhalt_B6/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 3 --d_model 16 --run_seed 0 --out results/color/size/det_fixed_d16/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 3 --d_model 16 --run_seed 1 --out results/color/size/det_fixed_d16/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 3 --d_model 16 --run_seed 2 --out results/color/size/det_fixed_d16/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 3 --d_model 16 --run_seed 0 --out results/color/size/seed_q8_fixed_d16/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 3 --d_model 16 --run_seed 1 --out results/color/size/seed_q8_fixed_d16/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 3 --d_model 16 --run_seed 2 --out results/color/size/seed_q8_fixed_d16/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 3 --d_model 64 --run_seed 0 --out results/color/size/det_fixed_d64/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 3 --d_model 64 --run_seed 1 --out results/color/size/det_fixed_d64/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --method fixed --budget 3 --d_model 64 --run_seed 2 --out results/color/size/det_fixed_d64/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 3 --d_model 64 --run_seed 0 --out results/color/size/seed_q8_fixed_d64/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 3 --d_model 64 --run_seed 1 --out results/color/size/seed_q8_fixed_d64/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 3 --d_model 64 --run_seed 2 --out results/color/size/seed_q8_fixed_d64/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 2 --method fixed --budget 3 --run_seed 0 --out results/color/qsweep/seed_q2_fixed_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 2 --method fixed --budget 3 --run_seed 1 --out results/color/qsweep/seed_q2_fixed_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 2 --method fixed --budget 3 --run_seed 2 --out results/color/qsweep/seed_q2_fixed_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 4 --method fixed --budget 3 --run_seed 0 --out results/color/qsweep/seed_q4_fixed_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 4 --method fixed --budget 3 --run_seed 1 --out results/color/qsweep/seed_q4_fixed_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 4 --method fixed --budget 3 --run_seed 2 --out results/color/qsweep/seed_q4_fixed_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 16 --method fixed --budget 3 --run_seed 0 --out results/color/qsweep/seed_q16_fixed_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 16 --method fixed --budget 3 --run_seed 1 --out results/color/qsweep/seed_q16_fixed_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 16 --method fixed --budget 3 --run_seed 2 --out results/color/qsweep/seed_q16_fixed_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 32 --method fixed --budget 3 --run_seed 0 --out results/color/qsweep/seed_q32_fixed_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 32 --method fixed --budget 3 --run_seed 1 --out results/color/qsweep/seed_q32_fixed_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 32 --method fixed --budget 3 --run_seed 2 --out results/color/qsweep/seed_q32_fixed_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode node --m 4 --q 8 --method fixed --budget 3 --run_seed 0 --out results/color/ablate/seed_static_q8_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode node --m 4 --q 8 --method fixed --budget 3 --run_seed 1 --out results/color/ablate/seed_static_q8_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode node --m 4 --q 8 --method fixed --budget 3 --run_seed 2 --out results/color/ablate/seed_static_q8_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 1 --q 8 --method fixed --budget 3 --run_seed 0 --out results/color/ablate/seed_q8_m1_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 1 --q 8 --method fixed --budget 3 --run_seed 1 --out results/color/ablate/seed_q8_m1_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 1 --q 8 --method fixed --budget 3 --run_seed 2 --out results/color/ablate/seed_q8_m1_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 8 --q 8 --method fixed --budget 3 --run_seed 0 --out results/color/ablate/seed_q8_m8_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 8 --q 8 --method fixed --budget 3 --run_seed 1 --out results/color/ablate/seed_q8_m8_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 8 --q 8 --method fixed --budget 3 --run_seed 2 --out results/color/ablate/seed_q8_m8_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --q 8 --method fixed --budget 3 --run_seed 0 --out results/color/ablate/det_q8_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --q 8 --method fixed --budget 3 --run_seed 1 --out results/color/ablate/det_q8_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode none --q 8 --method fixed --budget 3 --run_seed 2 --out results/color/ablate/det_q8_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 3 --ent_coef 0.001 --run_seed 0 --out results/color/ablate/seed_q8_rlhalt_ent0.001_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 3 --ent_coef 0.001 --run_seed 1 --out results/color/ablate/seed_q8_rlhalt_ent0.001_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 3 --ent_coef 0.001 --run_seed 2 --out results/color/ablate/seed_q8_rlhalt_ent0.001_B3/s2
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 3 --ent_coef 0.0 --run_seed 0 --out results/color/ablate/seed_q8_rlhalt_ent0.0_B3/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 3 --ent_coef 0.0 --run_seed 1 --out results/color/ablate/seed_q8_rlhalt_ent0.0_B3/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 3 --ent_coef 0.0 --run_seed 2 --out results/color/ablate/seed_q8_rlhalt_ent0.0_B3/s2

@@ -1,0 +1,38 @@
+{
+ "ids/det_fixed/B2/N16": {
+  "success": 0.6640625,
+  "success_std": 0.38949054014106044,
+  "p05": 0.0,
+  "never": 0.3359375,
+  "best8": 0.6640625,
+  "rounds": 2.0,
+  "runs": 3
+ },
+ "ids/det_fixed/B2/N64": {
+  "success": 0.53515625,
+  "success_std": 0.3786846968249113,
+  "p05": 0.0,
+  "never": 0.46484375,
+  "best8": 0.53515625,
+  "rounds": 2.0,
+  "runs": 3
+ },
+ "ids/seed_q1_fixed/B2/N16": {
+  "success": 0.8390299479166666,
+  "success_std": 0.03455967473061478,
+  "p05": 0.703125,
+  "never": 0.0,
+  "best8": 1.0,
+  "rounds": 2.0,
+  "runs": 3
+ },
+ "ids/seed_q1_fixed/B2/N64": {
+  "success": 0.5009765625,
+  "success_std": 0.07644084165582522,
+  "p05": 0.3072916666666667,
+  "never": 0.0,
+  "best8": 0.9934895833333334,
+  "rounds": 2.0,
+  "runs": 3
+ }
+}

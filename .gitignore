@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# model checkpoints (re-creatable; keep the repo small)
+*.pt
+
+# per-run console logs (train_log.jsonl and eval.json are kept)
+results/**/stdout.log
+
+# source papers (third-party, not redistributed)
+2606.29983v2.pdf
+6351_Learning_Randomized_Algor.pdf
+
+# LaTeX build artefacts
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.synctex.gz
+
+# local scratch
+runs/
+.DS_Store

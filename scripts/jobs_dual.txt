@@ -1,0 +1,4 @@
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 4 --rho 0 --dual_lr 0.01 --run_seed 0 --out results/color/dual/plain_dual/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 4 --rho 1 --dual_lr 0.005 --run_seed 0 --out results/color/dual/aug_lagrangian/s0
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 4 --rho 0 --dual_lr 0.01 --run_seed 1 --out results/color/dual/plain_dual/s1
+python3 -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method rlhalt --budget 4 --rho 1 --dual_lr 0.005 --run_seed 1 --out results/color/dual/aug_lagrangian/s1
