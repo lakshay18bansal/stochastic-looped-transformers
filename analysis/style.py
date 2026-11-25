@@ -27,6 +27,8 @@ def apply():
 
 
 def save(fig, path):
+    from pathlib import Path
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(str(path) + ".pdf")
     fig.savefig(str(path) + ".png")
     plt.close(fig)

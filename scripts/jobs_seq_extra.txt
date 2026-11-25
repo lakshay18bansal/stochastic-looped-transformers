@@ -1,0 +1,27 @@
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method fixed --fixed_k 12 --steps 2000 --run_seed 3 --out results/seq/dyck1/fixed12/s3
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method fixed --fixed_k 6 --steps 2000 --run_seed 3 --out results/seq/dyck1/fixed6/s3
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method length --steps 2000 --run_seed 3 --out results/seq/dyck1/length/s3
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method window --window 3 --steps 2000 --run_seed 3 --out results/seq/dyck1/window/s3
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method rlhalt --steps 2000 --run_seed 3 --out results/seq/dyck1/rlhalt/s3
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method rlhalt --budget 5.5 --steps 2000 --run_seed 3 --out results/seq/dyck1/rlhaltB/s3
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method rlhalt --budget 5.5 --seed_mode loop --m 4 --q 4 --steps 2000 --run_seed 3 --out results/seq/dyck1/seed_rlhaltB_q4/s3
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method rlhalt --budget 5.5 --seed_mode loop --m 4 --q 1 --steps 2000 --run_seed 3 --out results/seq/dyck1/seed_rlhaltB_q1/s3
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method window --window 3 --seed_mode loop --m 4 --q 4 --steps 2000 --run_seed 3 --out results/seq/dyck1/seed_window_q4/s3
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method fixed --fixed_k 12 --steps 2000 --run_seed 4 --out results/seq/dyck1/fixed12/s4
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method fixed --fixed_k 6 --steps 2000 --run_seed 4 --out results/seq/dyck1/fixed6/s4
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method length --steps 2000 --run_seed 4 --out results/seq/dyck1/length/s4
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method window --window 3 --steps 2000 --run_seed 4 --out results/seq/dyck1/window/s4
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method rlhalt --steps 2000 --run_seed 4 --out results/seq/dyck1/rlhalt/s4
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method rlhalt --budget 5.5 --steps 2000 --run_seed 4 --out results/seq/dyck1/rlhaltB/s4
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method rlhalt --budget 5.5 --seed_mode loop --m 4 --q 4 --steps 2000 --run_seed 4 --out results/seq/dyck1/seed_rlhaltB_q4/s4
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method rlhalt --budget 5.5 --seed_mode loop --m 4 --q 1 --steps 2000 --run_seed 4 --out results/seq/dyck1/seed_rlhaltB_q1/s4
+python3 -m stochloop.train_seq --threads 1 --task dyck1 --method window --window 3 --seed_mode loop --m 4 --q 4 --steps 2000 --run_seed 4 --out results/seq/dyck1/seed_window_q4/s4
+python3 -m stochloop.train_seq --threads 1 --task copy --method fixed --fixed_k 12 --steps 3000 --run_seed 3 --out results/seq/copy/fixed12/s3
+python3 -m stochloop.train_seq --threads 1 --task copy --method fixed --fixed_k 6 --steps 3000 --run_seed 3 --out results/seq/copy/fixed6/s3
+python3 -m stochloop.train_seq --threads 1 --task copy --method length --steps 3000 --run_seed 3 --out results/seq/copy/length/s3
+python3 -m stochloop.train_seq --threads 1 --task copy --method window --window 3 --steps 3000 --run_seed 3 --out results/seq/copy/window/s3
+python3 -m stochloop.train_seq --threads 1 --task copy --method rlhalt --steps 3000 --run_seed 3 --out results/seq/copy/rlhalt/s3
+python3 -m stochloop.train_seq --threads 1 --task copy --method rlhalt --budget 5.5 --steps 3000 --run_seed 3 --out results/seq/copy/rlhaltB/s3
+python3 -m stochloop.train_seq --threads 1 --task copy --method rlhalt --budget 5.5 --seed_mode loop --m 4 --q 4 --steps 3000 --run_seed 3 --out results/seq/copy/seed_rlhaltB_q4/s3
+python3 -m stochloop.train_seq --threads 1 --task copy --method rlhalt --budget 5.5 --seed_mode loop --m 4 --q 1 --steps 3000 --run_seed 3 --out results/seq/copy/seed_rlhaltB_q1/s3
+python3 -m stochloop.train_seq --threads 1 --task copy --method window --window 3 --seed_mode loop --m 4 --q 4 --steps 3000 --run_seed 3 --out results/seq/copy/seed_window_q4/s3

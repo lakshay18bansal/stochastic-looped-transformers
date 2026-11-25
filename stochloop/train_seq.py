@@ -83,10 +83,21 @@ def main(argv=None):
     baseline, dual = MovingBaseline(0.9), BudgetDual(a.budget, a.dual_lr, a.rho)
     n_ex = a.batch // a.m
 
-    log = (out / "train_log.jsonl").open("w")
-    t0 = time.time()
+    # ---- resume from checkpoint (runs survive machine restarts) ----
+    ckpt_path, start, elapsed = out / "ckpt.pt", 0, 0.0
+    if ckpt_path.exists():
+        ck = torch.load(ckpt_path, weights_only=False)
+        model.load_state_dict(ck["model"]); opt.load_state_dict(ck["opt"])
+        data_rng.bit_generator.state = ck["data_rng"]; py_rng.setstate(ck["py_rng"])
+        seed_gen.set_state(ck["seed_gen"]); torch.set_rng_state(ck["torch_rng"])
+        baseline.value, dual.lam = ck["baseline"], ck["lam"]
+        start, elapsed = ck["step"], ck["elapsed"]
+        kept = [l for l in open(out / "train_log.jsonl") if json.loads(l)["step"] < start]
+        (out / "train_log.jsonl").write_text("".join(kept))
+    log = (out / "train_log.jsonl").open("a" if start else "w")
+    t0 = time.time() - elapsed
     model.train()
-    for step in range(a.steps):
+    for step in range(start, a.steps):
         for g in opt.param_groups:
             g["lr"] = lr_at(step, a)
         batch = sample_batch(a.task, n_ex, a.min_len, a.max_len, data_rng)
@@ -111,6 +122,14 @@ def main(argv=None):
             rec = {"step": step, "loss": float(loss.detach()), "gn": float(gn), "time": round(time.time() - t0, 1), **info}
             log.write(json.dumps(rec) + "\n")
             log.flush()
+        if (step + 1) % 200 == 0 and step + 1 < a.steps:
+            tmp = out / "ckpt.tmp"
+            torch.save({"model": model.state_dict(), "opt": opt.state_dict(),
+                        "data_rng": data_rng.bit_generator.state, "py_rng": py_rng.getstate(),
+                        "seed_gen": seed_gen.get_state(), "torch_rng": torch.get_rng_state(),
+                        "baseline": baseline.value, "lam": dual.lam, "step": step + 1,
+                        "elapsed": time.time() - t0}, tmp)
+            tmp.replace(ckpt_path)
     log.close()
     torch.save(model.state_dict(), out / "model.pt")
 
@@ -122,6 +141,7 @@ def main(argv=None):
     res["n_params"] = n_params(model)
     res["train_time_s"] = round(time.time() - t0, 1)
     (out / "eval.json").write_text(json.dumps(res))
+    ckpt_path.unlink(missing_ok=True)
     print(json.dumps({"out": str(out), **res["summary"], "time": res["train_time_s"]}))
 
 

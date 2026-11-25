@@ -37,7 +37,8 @@ def stat(runs, n, key, sub=None):
         if row is None:
             continue
         v = row[key] if sub is None else row[key][str(sub)] if str(sub) in row[key] else row[key].get(sub)
-        vals.append(v)
+        if v is not None:
+            vals.append(v)
     return (float(np.mean(vals)), float(np.std(vals))) if vals else (np.nan, np.nan)
 
 
@@ -70,14 +71,15 @@ def fig_budget(n=32):
                     m = [stat(r, n, "best_of_k", 8) for _, r in rows]
             mu = np.array([v[0] for v in m]); sd = np.array([v[1] for v in m])
             ax.plot(x, mu, marker="o", color=col, label=lab)
-            ax.fill_between(x, mu - sd, mu + sd, color=col, alpha=0.15, lw=0)
+            ax.fill_between(x, np.clip(mu - sd, 0, 1), np.clip(mu + sd, 0, 1), color=col, alpha=0.15, lw=0)
     titles = ("Average success", "Worst-case: 5th-pct per-graph success", "Best-of-8 seeds (verified)")
     for ax, t in zip(axes, titles):
         ax.set_title(t)
         ax.set_xlabel("average rounds B (loop iterations)")
         ax.set_ylim(-0.02, 1.02)
     axes[0].set_ylabel(f"success, N={n}")
-    axes[0].legend(loc="lower right")
+    h, l = axes[0].get_legend_handles_labels()
+    fig.legend(h, l, loc="upper center", bbox_to_anchor=(0.5, 0.0), ncol=len(l), fontsize=7, frameon=False)
     style.save(fig, FIG / "color_budget")
 
 
@@ -169,7 +171,7 @@ def fig_size_q():
     axes[0].set_xlabel("width d (parameters ~ d^2)")
     axes[0].set_ylabel(f"success, N={n}, B=3")
     axes[0].set_title("Fixed network size")
-    axes[0].legend(fontsize=6)
+    axes[0].legend(fontsize=6, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2, frameon=False)
     qs = [1, 2, 4, 8, 16, 32]
     avg, p05, div, b8 = [], [], [], []
     for q in qs:

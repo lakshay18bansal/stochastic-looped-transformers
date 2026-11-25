@@ -190,23 +190,29 @@ def fig_stop(task, keys):
 
 
 def fig_compute(tasks):
-    fig, axes = plt.subplots(1, len(tasks), figsize=(4.6 * len(tasks), 3.1))
+    """Mean OOD policy accuracy (large marker) and every run (small markers) against the
+    number of loops actually executed per OOD input."""
+    fig, axes = plt.subplots(1, len(tasks), figsize=(4.4 * len(tasks), 3.0))
+    handles = {}
     for ax, task in zip(np.atleast_1d(axes), tasks):
         for key, (lab, col) in METHODS.items():
             runs = load(task, key)
             if not runs:
                 continue
-            x = np.mean([ood_mean(r, "policy_depth") for r in runs])
-            y = [ood_mean(r, "policy") for r in runs]
-            ax.errorbar(x, np.mean(y), yerr=np.std(y), fmt="o", color=col, ms=6, capsize=2, label=lab)
+            xs = [ood_mean(r, "policy_depth") for r in runs]
+            ys = [ood_mean(r, "policy") for r in runs]
+            ax.scatter(xs, ys, s=10, color=col, alpha=0.45, lw=0)
+            handles[lab] = ax.scatter(np.mean(xs), np.mean(ys), s=55, color=col, edgecolor="white", zorder=3)
             if key.startswith("rlhalt") or key.startswith("seed_rlhalt"):
                 xo = np.mean([ood_mean(r, "online_depth") for r in runs])
                 yo = np.mean([ood_mean(r, "online") for r in runs])
-                ax.scatter(xo, yo, marker="^", s=30, color=col, edgecolor="white")
-        ax.set_xlabel("inference loops per OOD input (policy)")
-        ax.set_ylabel("OOD policy accuracy")
-        ax.set_title(f"{task}: accuracy vs inference compute (▲ on-line median stop)")
-    np.atleast_1d(axes)[0].legend(fontsize=6, loc="best")
+                ax.scatter(xo, yo, marker="^", s=40, color=col, edgecolor="white", zorder=3)
+        ax.set_xlabel("loops per OOD input")
+        ax.set_ylabel("OOD accuracy (policy)")
+        ax.set_title(f"{task}")
+    handles["on-line median stop"] = plt.Line2D([], [], marker="^", ls="", color=INK2)
+    fig.legend(list(handles.values()), list(handles), fontsize=6.5, loc="center left",
+               bbox_to_anchor=(1.0, 0.5), frameon=False)
     style.save(fig, FIG / "seq_compute")
 
 

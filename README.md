@@ -1,73 +1,144 @@
 # Learned Stochastic Computation in Looped Transformers
 
-*When to stop, what to randomise, and how to spend a fixed compute budget.*
+Code and results for our DA4022 course project at IIT Guwahati
+(Lakshay Bansal, Mayukh Kundu, Prayansh Kumar, Krish Randar, Sakshi Gupta, Ritvij Gopal).
 
-This project merges two lines of work into one model and studies it at a **fixed network size** and a
-**fixed average compute** budget:
+## About the project
 
-| | Paper 1 — *Stabilizing Extrapolation in Looped Transformers via Learned Stochastic Stopping* (NeurIPS 2026) | Paper 2 — *Learning Randomized Algorithms with Transformers* (ICLR 2025) |
-|---|---|---|
-| randomness | **when to stop**: the number of loop iterations τ | **what to compute**: a random seed r fed to the network |
-| learned by | RL-Halting (REINFORCE on the sampled-depth loss) | the q-norm (relaxed min–max) objective over seeds |
-| benefit | stable length extrapolation across runs | robustness on worst-case inputs, amplification by voting |
-| compute | unconstrained | fixed depth |
+We started from two papers:
 
-The merged **stochastic looped transformer** re-injects a random seed encoding at every loop iteration and has a
-hazard-based stopping head. It is trained with the q-norm objective over seeds, sampled-depth supervision, and an
-*equality* constraint `E[τ] = B` on average compute. The constraint is enforced with an augmented-Lagrangian dual
-(**budgeted RL-Halting**). Every variant has exactly the same parameter count.
+1. Kuo et al., "Stabilizing Extrapolation in Looped Transformers via Learned Stochastic Stopping", NeurIPS 2026.
+   A looped transformer runs the same block again and again, and it learns when to stop (RL-Halting).
+2. von Oswald et al., "Learning Randomized Algorithms with Transformers", ICLR 2025.
+   The transformer gets a random seed as input and learns to act like a randomized algorithm.
 
-The report is in [`report/main.pdf`](report/main.pdf).
+We put both ideas into one looped model. All versions of the model have the same number of parameters, and the
+average number of loops is kept fixed at a budget B. We trained 238 models on Dyck-1, Copy and 3-colouring of
+cycle graphs to see which kind of randomness actually helps when compute is fixed.
 
-## Repository layout
+In short, the random seed helped at test time (on cycles where all vertices look the same, it took colouring from
+0% to 84% in one try), while the learned stopping time only helped during training. Copy did not train well for
+any method at our scale.
+
+## Folders
 
 ```
-stochloop/            library
-  model.py            looped transformer, seed encodings, stopping head, exit distribution
-  objectives.py       depth schedules, RL-Halting, budgeted RL-Halting (augmented Lagrangian), q-norm
-  tasks.py            Dyck-1, Copy, binary addition (slot-filling format)
-  evaluation.py       oracle / policy / on-line / depth-vote / seed-vote metrics, flip rates
-  train_seq.py        length-generalisation experiments
-  coloring.py         looped distributed 3-colouring of cycles (train + evaluate)
+stochloop/      model, training and evaluation code
+  model.py        the looped transformer (seed input + halting head)
+  objectives.py   losses, RL-Halting, the budget constraint
+  tasks.py        Dyck-1 and Copy data
+  evaluation.py   evaluation for Dyck-1 and Copy
+  train_seq.py    one Dyck-1 or Copy run
+  coloring.py     one graph colouring run
 scripts/
-  jobs_*.txt          the exact command for every run reported
-  run_queue.py        resumable parallel job runner
-  run_all.sh          reproduce everything (experiments -> tables -> figures -> PDF)
-analysis/             aggregation, tables and figures
-results/              raw per-run outputs (eval.json, train_log.jsonl) and aggregated tables
-figures/              all figures (PDF + PNG)
-report/               LaTeX source and compiled report
+  jobs_*.txt      the exact command for every run we did (238 lines in total)
+  run_queue.py    runs a job file in parallel and skips runs that are already done
+analysis/       makes the tables and figures from results/
+results/        output of all 238 runs, and the tables in results/tables/
+reproduce.py    one script for checking, rerunning and analysing everything
 ```
 
-## Quick start
+Every run has its own folder in `results/`, for example `results/seq/dyck1/rlhaltB3/s0/` or
+`results/color/ids/seed_q8_fixed_B3/s0/`. Inside are `args.json` (settings), `train_log.jsonl` (training curve)
+and `eval.json` (test results). We did not include the trained weights since nothing needs them.
+
+## Setup
+
+We used Ubuntu 24.04 with Python 3.12. Only a CPU is needed.
 
 ```bash
+unzip stochastic-looped-transformers.zip
+cd stochastic-looped-transformers
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements.txt
-# one run: budgeted, seeded RL-Halting on Dyck-1 (about 30 min on one CPU core)
-python3 -m stochloop.train_seq --task dyck1 --method rlhalt --budget 5.5 \
-        --seed_mode loop --m 4 --q 4 --steps 2000 --out runs/demo
-# one colouring run: seeded q-norm model with 3 communication rounds (about 4 min)
-python3 -m stochloop.coloring --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 3 --out runs/color_demo
-# everything
-WORKERS=6 bash scripts/run_all.sh
 ```
 
-All experiments run on a CPU, with no GPU needed. The full grid took about 8 hours on a 12-core laptop CPU.
+If `python3 -m venv` complains about `ensurepip`, install it with `sudo apt install python3-venv` and try again.
+The install takes a few minutes.
 
-## Main methods (all with the same ~100k / ~13k parameters)
+## Quick check
 
-| key | depth schedule | seed | objective |
-|---|---|---|---|
-| `fixed12`, `fixed6` | K fixed | – | ERM |
-| `length` | K = n | – | ERM |
-| `window` | K = n + U{-3..3} | – | ERM |
-| `rlhalt` | learned τ ~ π_φ, no compute constraint (paper 1) | – | ERM |
-| `rlhaltB` | learned τ with **E[τ] = 5.5** (= E[n], matched to `length`) | – | ERM |
-| `seed_rlhaltB_q{1,4}` | learned τ with E[τ] = 5.5 | fresh per loop | q-norm over m = 4 seeds |
-| colouring `det_*` / `seed_q*` | fixed / learned rounds, average B | none / per-vertex, per-round | q-norm |
+```bash
+python reproduce.py check
+```
 
-## Acknowledgement of reused material
+This trains two tiny models and should print `smoke test passed` in under a minute.
 
-The task formats and the RL-Halting estimator follow the public reference implementation of paper 1
-(Apache-2.0). The cycle-colouring task and the q-norm objective follow paper 2. All code here is a fresh
-implementation.
+## Tables and figures
+
+```bash
+python reproduce.py analysis
+```
+
+This takes less than a minute. It rewrites the tables in `results/tables/` and draws all figures into `figures/`.
+All the numbers we used in the report are in `results/tables/report_numbers.md`.
+
+## Running all experiments again
+
+```bash
+python reproduce.py all --fresh --workers 8
+```
+
+This moves our results to `results_shipped/`, trains all 238 models again into `results/`, makes the tables and
+figures, and finally compares the new results with ours (`results/compare_report.txt`).
+
+It takes around 45 to 60 CPU-hours in total. Each run uses one CPU core and about 0.5 GB of RAM, so set `--workers`
+to at most the number of cores you have. On our 12-core laptop this works out to roughly:
+
+| --workers | time |
+|---|---|
+| 4 | 11 hours |
+| 8 | 6 hours |
+| 12 | 5 hours |
+
+If it stops for any reason, run the same command again. Finished runs are skipped and Dyck-1 / Copy runs continue
+from their last checkpoint. To keep it running after closing the terminal:
+
+```bash
+nohup python reproduce.py all --fresh --workers 8 > reproduce.log 2>&1 &
+tail -f reproduce.log
+```
+
+You can also run one group at a time (after the `--fresh` step has moved our results away):
+
+```bash
+python scripts/run_queue.py scripts/jobs_color.txt --workers 8       # 147 colouring runs, ~17 CPU-hours
+python scripts/run_queue.py scripts/jobs_dual.txt --workers 4        # 4 runs, ~1 CPU-hour
+python scripts/run_queue.py scripts/jobs_seq.txt --workers 8         # 60 Dyck-1 / Copy runs, ~20-30 CPU-hours
+python scripts/run_queue.py scripts/jobs_seq_extra.txt --workers 8   # 27 extra seeds, ~8-10 CPU-hours
+python reproduce.py analysis
+```
+
+Or a single run, by copying any line from a job file:
+
+```bash
+python -m stochloop.train_seq --threads 1 --task dyck1 --method rlhalt --budget 3 --steps 2000 --run_seed 0 --out runs/dyck1_B3
+python -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4 --q 8 --method fixed --budget 3 --run_seed 0 --out runs/color_B3
+```
+
+A Dyck-1 or Copy run takes 15 to 25 minutes and a colouring run 2 to 11 minutes.
+
+## Will I get the same numbers?
+
+All seeds are fixed and every run uses a single thread. We retrained 10 of the runs (covering all the different
+kinds) and got exactly the same results as the ones in `results/`. On another machine or with other library
+versions, small floating point differences can show up in some runs, and `results/compare_report.txt` will show
+how large they are.
+
+## Which script makes what
+
+- `analysis/report_numbers.py`: `results/tables/report_numbers.md`, all numbers used in the report
+- `analysis/seq_analysis.py`: Dyck-1 and Copy tables (`seq_dyck1.md`, `seq_copy.md`) and `figures/seq_*`
+- `analysis/color_analysis.py`: colouring tables (`color_main.md`, `color_ablations.json`) and `figures/color_*`
+- `analysis/extra_analysis.py`: `jensen.md`, `extra.json`, `figures/dual_trajectory`, `figures/breadth_depth_theory`
+- `analysis/report_figures.py`: the two figures used in the report
+- `analysis/diagram.py`: the model diagram
+
+## Credits
+
+The Dyck-1 and Copy data format and the RL-Halting setup follow the public code of the first paper
+(https://github.com/Hsun-Yu/looped_stopping, Apache-2.0). The colouring task and the q-norm loss follow the
+second paper.

@@ -2,24 +2,32 @@
 __pycache__/
 *.pyc
 .venv/
+venv/
 
-# model checkpoints (re-creatable; keep the repo small)
+# trained model weights and checkpoints (recreated by every run)
 *.pt
 
-# per-run console logs (train_log.jsonl and eval.json are kept)
+# console output and queue logs of the runs
 results/**/stdout.log
+results/*.log
+results/compare_report.txt
+results_shipped/
 
-# source papers (third-party, not redistributed)
+# single runs started by hand (see README)
+runs/
+
+# papers by other authors (not ours to redistribute)
 2606.29983v2.pdf
 6351_Learning_Randomized_Algor.pdf
 
-# LaTeX build artefacts
-report/*.aux
-report/*.log
-report/*.out
-report/*.toc
-report/*.synctex.gz
+# kept locally, not shared: figures (made by `python reproduce.py analysis`), report and slides
+figures/
+report/
+presentation/
 
-# local scratch
-runs/
+# files that are not part of this project
+*.zip
+BTP1_presentation_*.pptx
+reproduce.log
+
 .DS_Store

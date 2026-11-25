@@ -1,3 +1,6 @@
-torch>=2.1
-numpy>=1.24
-matplotlib>=3.7
+# Exact versions used for all results in this project (Python 3.12, CPU only).
+# On Linux, install the CPU build of torch first (much smaller download):
+#   pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
+torch==2.15.0
+numpy==2.5.4
+matplotlib==3.11.2
