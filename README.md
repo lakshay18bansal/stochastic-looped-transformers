@@ -121,12 +121,6 @@ python -m stochloop.coloring --threads 1 --steps 3000 --seed_mode nodeloop --m 4
 
 A Dyck-1 or Copy run takes 15 to 25 minutes and a colouring run 2 to 11 minutes.
 
-## Will I get the same numbers?
-
-All seeds are fixed and every run uses a single thread. We retrained 10 of the runs (covering all the different
-kinds) and got exactly the same results as the ones in `results/`. On another machine or with other library
-versions, small floating point differences can show up in some runs, and `results/compare_report.txt` will show
-how large they are.
 
 ## Which script makes what
 
@@ -137,8 +131,3 @@ how large they are.
 - `analysis/report_figures.py`: the two figures used in the report
 - `analysis/diagram.py`: the model diagram
 
-## Credits
-
-The Dyck-1 and Copy data format and the RL-Halting setup follow the public code of the first paper
-(https://github.com/Hsun-Yu/looped_stopping, Apache-2.0). The colouring task and the q-norm loss follow the
-second paper.
